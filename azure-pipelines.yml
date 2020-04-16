@@ -3,8 +3,8 @@
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 #
-trigger:
-  - '*'
+  trigger:
+   - '*'
   
   pool:
     vmImage: 'ubuntu-16.04'
@@ -59,7 +59,6 @@ trigger:
       arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
       zipAfterPublish: true
   
-
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
-    condition: succeeded()
+    condition: succeeded()  
